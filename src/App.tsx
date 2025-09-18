@@ -21,7 +21,7 @@ export const App: React.FC = () => {
     email: '',
     phone: '',
   });
-  const [todo, setTodo] = useState<Todo>({
+  const [selectedToDo, setSelectedTodo] = useState<Todo>({
     id: 0,
     title: '',
     completed: false,
@@ -64,7 +64,7 @@ export const App: React.FC = () => {
   const clickedID = (todo: Todo) => {
     setLoadModal(true);
     setShowModal(true)
-    setTodo(todo);
+    setSelectedTodo(todo);
     getUser(todo.userId)
       .then(data => setUserData(data))
       .finally(() => {
@@ -76,11 +76,9 @@ export const App: React.FC = () => {
   };
   const setFilter = (value: string) => {
     setSelect(value);
-    filterTodos();
   };
   const setSearch = (value: string) => {
     setInputValue(value);
-    filterTodos();
   };
 
   return (
@@ -116,7 +114,7 @@ export const App: React.FC = () => {
         showModal={showModal}
         userData={userData}
         loadModal={loadModal}
-        todo={todo}
+        todo={selectedToDo}
         modalClose={() => {
           setShowModal(false);
           resetClosedEyeID();
