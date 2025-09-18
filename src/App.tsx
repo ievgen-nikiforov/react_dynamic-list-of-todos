@@ -39,6 +39,25 @@ export const App: React.FC = () => {
       .then(data => setTodos(data))
       .finally(() => setLoad(false)); // hide loader after request finishes
   }, []);
+    const filterTodos = () => {
+    let result = [...todos];
+
+    // filter by status
+    if (select === 'active') {
+      result = result.filter(todo => !todo.completed);
+    } else if (select === 'completed') {
+      result = result.filter(todo => todo.completed);
+    }
+
+    // filter by search
+    if (inputValue) {
+      result = result.filter(todo =>
+        todo.title.toLowerCase().includes(inputValue.toLowerCase()),
+      );
+    }
+
+    setFilteredTodos(result);
+  };
   useEffect(() => {
     filterTodos();
   }, [select, inputValue, todos]);
@@ -63,25 +82,7 @@ export const App: React.FC = () => {
     setInputValue(value);
     filterTodos();
   };
-  const filterTodos = () => {
-    let result = [...todos];
 
-    // filter by status
-    if (select === 'active') {
-      result = result.filter(todo => !todo.completed);
-    } else if (select === 'completed') {
-      result = result.filter(todo => todo.completed);
-    }
-
-    // filter by search
-    if (inputValue) {
-      result = result.filter(todo =>
-        todo.title.toLowerCase().includes(inputValue.toLowerCase()),
-      );
-    }
-
-    setFilteredTodos(result);
-  };
   return (
     <>
       <div className="section">
