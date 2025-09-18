@@ -44,12 +44,12 @@ export const App: React.FC = () => {
   }, [select, inputValue, todos]);
   const clickedID = (todo: Todo) => {
     setLoadModal(true);
+    setShowModal(true)
     setTodo(todo);
-    getUser(todo.id)
+    getUser(todo.userId)
       .then(data => setUserData(data))
       .finally(() => {
         setLoadModal(false);
-        setShowModal(true);
       });
   };
   const resetClosedEyeID = () => {
