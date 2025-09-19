@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import { User } from '../../types/User';
 import { Todo } from '../../types/Todo';
 
-interface PropTyoe {
+interface PropType {
   showModal: boolean;
   userData?: User;
   loadModal: boolean;
   modalClose: () => void;
   todo?: Todo;
 }
-export const TodoModal: React.FC<PropTyoe> = ({
+export const TodoModal: React.FC<PropType> = ({
   showModal,
   userData,
   loadModal,
