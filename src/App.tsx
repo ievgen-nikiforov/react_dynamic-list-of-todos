@@ -39,7 +39,7 @@ export const App: React.FC = () => {
       .then(data => setTodos(data))
       .finally(() => setLoad(false)); // hide loader after request finishes
   }, []);
-    const filterTodos = () => {
+  const filterTodos = () => {
     let result = [...todos];
 
     // filter by status
@@ -63,7 +63,7 @@ export const App: React.FC = () => {
   }, [select, inputValue, todos]);
   const clickedID = (todo: Todo) => {
     setLoadModal(true);
-    setShowModal(true)
+    setShowModal(true);
     setSelectedTodo(todo);
     getUser(todo.userId)
       .then(data => setUserData(data))

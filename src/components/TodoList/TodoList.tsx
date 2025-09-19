@@ -57,7 +57,8 @@ export const TodoList: React.FC<TodoListProps> = ({
                 className="button"
                 type="button"
                 onClick={() => {
-                  clickedID?.(todo); setClosedEye(todo.id);
+                  clickedID?.(todo);
+                  setClosedEye(todo.id);
                 }}
               >
                 <span className="icon">
