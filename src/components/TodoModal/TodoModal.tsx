@@ -18,7 +18,7 @@ export const TodoModal: React.FC<PropType> = ({
   modalClose,
   todo,
 }) => {
-  return (
+  return showModal ? (
     <div
       className={classNames({
         modal: true,
@@ -69,5 +69,5 @@ export const TodoModal: React.FC<PropType> = ({
         </div>
       )}
     </div>
-  );
+  ) : null;
 };
