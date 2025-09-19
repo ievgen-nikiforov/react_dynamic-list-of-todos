@@ -2,8 +2,8 @@ import React from 'react';
 
 type Props = {
   selected: string;
-  select?: (value: string) => void;
-  search?: (value: string) => void;
+  select: (value: string) => void;
+  search: (value: string) => void;
   inputValue?: string;
 };
 export const TodoFilter: React.FC<Props> = ({
@@ -19,7 +19,7 @@ export const TodoFilter: React.FC<Props> = ({
           <select
             data-cy="statusSelect"
             value={selected}
-            onChange={e => select?.(e.target.value)}
+            onChange={e => select(e.target.value)}
           >
             <option value="all">All</option>
             <option value="active">Active</option>
@@ -35,7 +35,7 @@ export const TodoFilter: React.FC<Props> = ({
           className="input"
           placeholder="Search..."
           value={inputValue}
-          onChange={e => search?.(e.target.value)}
+          onChange={e => search(e.target.value)}
         />
         <span className="icon is-left">
           <i className="fas fa-magnifying-glass" />
@@ -48,7 +48,7 @@ export const TodoFilter: React.FC<Props> = ({
               data-cy="clearSearchButton"
               type="button"
               className="delete"
-              onClick={() => search?.('')}
+              onClick={() => search('')}
             />
           </span>
         )}

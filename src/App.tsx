@@ -77,9 +77,6 @@ export const App: React.FC = () => {
   const setFilter = (value: string) => {
     setSelect(value);
   };
-  const setSearch = (value: string) => {
-    setInputValue(value);
-  };
 
   return (
     <>
