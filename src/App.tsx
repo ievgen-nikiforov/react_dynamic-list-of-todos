@@ -74,9 +74,6 @@ export const App: React.FC = () => {
   const resetClosedEyeID = () => {
     setClosedEye(0);
   };
-  const setFilter = (value: string) => {
-    setSelect(value);
-  };
 
   return (
     <>
@@ -87,9 +84,9 @@ export const App: React.FC = () => {
 
             <div className="block">
               <TodoFilter
-                select={setFilter}
+                select={setSelect}
                 selected={select}
-                search={setSearch}
+                search={setInputValue}
                 inputValue={inputValue}
               />
             </div>
